@@ -24,7 +24,7 @@ typedef struct _connection {
 
 //whups
 void create_connections(CONNECTION *con, BUFFER *buf, ADDRESS *list);
-void create_buffer(BUFFER *buffer, BUFFER *shared, BUFFER *data);
+void create_buffers(BUFFER *buffer, BUFFER *shared, BUFFER *data);
 int send_to_cluster(BUFFER segment);
 
 #endif
