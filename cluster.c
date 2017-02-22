@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cluster.h"
+#include <sys/socket.h>
 
 void send_sector(BUFFER *sector){
 	//TODO send the sector to a node
@@ -27,7 +28,20 @@ void create_buffer(BUFFER *buffer, BUFFER *shared, BUFFER *data){
 
 void create_addresses(ADDRESS *list){
 	//TODO gotta make the ip address
-	ADDRESS address;
+	//put into struct called sockaddr_in
+	int port = 80;
+	
+	char *addrs = {	"192.168.1.1",
+					"127.0.0.1"
+					"68.172.1.1"};
+	
+	for (int i = 0; i < list.length(); i++){
+		ADDRESS address = list[i];
+		/* fill in the server's address and data */ 
+		address.sin_family = AF_INET; 
+		address.sin_port = htons(port);
+		inet_aton(addrs[i], &address.sin_addr.s_addr);
+	}
 }
 
 
