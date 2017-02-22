@@ -4,7 +4,7 @@ name = cluster
 lib = lib$(name).so
 
 build: $(name).o
-	$(cc) -shared -fpic -std=$(std) -o $(lib) $(name).o
+	$(cc) -shared -fpic -std=$(std) -lpthread -o $(lib) $(name).o
 
 $(name).o: $(name).c
 	$(cc) -c $(name).c
