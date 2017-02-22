@@ -23,8 +23,8 @@ typedef struct _connection {
 }CONNECTION;
 
 //whups
-CONNECTION create_connections(char *ip, int port, (void *)function_name);
-BUFFER create_buffer(unsigned char *shared, unsigned char *data);
-int send_to_cluster(buffer);
+void create_connections(CONNECTION *con, BUFFER *buf, ADDRESS *list);
+void create_buffer(BUFFER *buffer, BUFFER *shared, BUFFER *data);
+int send_to_cluster(BUFFER segment);
 
 #endif
