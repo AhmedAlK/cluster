@@ -22,6 +22,7 @@ typedef struct _connection {
 	int socket;
 }CONNECTION;
 
+//whups
 CONNECTION create_connections(char *ip, int port, (void *)function_name);
 BUFFER create_buffer(unsigned char *shared, unsigned char *data);
 int send_to_cluster(buffer);
